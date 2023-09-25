@@ -22,7 +22,7 @@ exports.addItemToBasket = async (req, res) => {
 };
 exports.removeItem = async (req, res) => {
 	const { id } = req.params;
-	console.log(id, "gdjhjdhdghdghj");
+	// console.log(id, "gdjhjdhdghdghj");
 
 	const cartItem = await Cart.findOneAndRemove({ productId: id });
 	if (!cartItem) {
@@ -108,11 +108,6 @@ exports.getBasket = async (req, res) => {
 		}
 	});
 
-	console.log(
-		"totalDiscountedPrice  discount.minCartValue",
-		totalDiscountedPrice,
-		discount.minCartValue
-	);
 	if (totalDiscountedPrice >= discount.minCartValue) {
 		totalDiscountedPriceAfterMinCartValue =
 			totalDiscountedPrice - discount.minCartValueDiscount;
