@@ -6,18 +6,22 @@
             "use": "vercel/node"
         },
         {
-            "src": "build/",
+            "src": "build/**",
             "use": "vercel/static"
         }
     ],
     "routes": [
         {
+            "src": "/",
+            "dest": "build/index.html"
+        },
+        {
             "src": "/api/(.*)",
             "dest": "index.js"
         },
         {
-            "src": "/(.*)",
-            "dest": "build/"
+            "src": "/(.+)",
+            "dest": "/build/$1"
         }
     ]
 }
